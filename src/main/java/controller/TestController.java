@@ -6,4 +6,7 @@ package controller;
  * Description: todo
  */
 public class TestController {
+    public static void main(String[] args) {
+        System.out.println("hhh");
+    }
 }
