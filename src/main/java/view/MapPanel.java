@@ -39,7 +39,7 @@ public class MapPanel extends JPanel {
         for (int i = 0; i < mapData.length; i++) {
             for (int j = 0; j < mapData[0].length; j++) {
                 if (mapData[i][j] == 1) {
-                    g2.drawImage(ImageData.imgs.get("1"), j * 40, 10 + i * 40, null);
+                    g2.drawImage(ImageData.imgs.get("wall"), j * 40, 10 + i * 40, null);
                 }
             }
         }
