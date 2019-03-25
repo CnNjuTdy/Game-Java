@@ -1,8 +1,9 @@
 package view;
 
 import data.ImageData;
-import game.Game;
 import model.PlayerModel;
+
+import static game.Game.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,17 +19,14 @@ import static java.awt.event.KeyEvent.*;
  */
 public class BeginPanel extends JPanel {
     private int choose = 0;
-    private JFrame frame;
 
-    public BeginPanel(JFrame frame) {
-        this.frame = frame;
+    public BeginPanel() {
         init();
     }
 
     private void init() {
         setLayout(null);
-        setBackground(new Color(0xECF0F1));
-        setSize(960, 640);
+        setBounds(0, 0, 960, 640);
         frame.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -52,12 +50,21 @@ public class BeginPanel extends JPanel {
                         break;
                     }
                     case VK_SPACE: {
-                        System.out.println("空格");
-                        if (choose == 0) {
-                        } else if (choose == 1) {
-                        } else if (choose == 2) {
-                            Game.getInstance().exitGame();
+                        frame.removeKeyListener(this);
+                        if (choose == 2) {
+                            exitGame();
                         }
+                        PlayerModel p;
+                        if (choose == 0) {
+                            p = new PlayerModel();
+                        } else {
+                            p = new PlayerModel();
+                        }
+                        beginPanel.setVisible(false);
+                        attributePanel.setVisible(true);
+                        attributePanel.setPlayerModel(p);
+                        mapPanel.setPlayer(p);
+                        mapPanel.setVisible(true);
                         break;
                     }
                     default: {
@@ -76,6 +83,7 @@ public class BeginPanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
+        setBackground(new Color(0xECF0F1));
         Graphics2D g2 = (Graphics2D) g;
 
         //绘制标题
@@ -92,7 +100,7 @@ public class BeginPanel extends JPanel {
         g2.setFont(new Font("Arial", Font.PLAIN, 20));
         g2.drawString("Mage Start", 430, 290);
         g2.drawString("Warrior Start", 430, 330);
-        g2.drawString("Exit game.Game", 430, 370);
+        g2.drawString("Exit Game", 430, 370);
 
         //绘制小箭头
         g2.drawImage(ImageData.icons.get("arrow-icon"), 370, 273 + choose * 40, null);

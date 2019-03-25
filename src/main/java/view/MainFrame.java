@@ -2,6 +2,7 @@ package view;
 
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Time       : 2019/3/25 14:45
@@ -9,31 +10,20 @@ import javax.swing.*;
  * Description: 最高层frame
  */
 public class MainFrame extends JFrame {
+    private BeginPanel beginPanel;
+    private MapPanel mapPanel;
+
     public MainFrame() {
         init();
     }
 
     private void init() {
-        setTitle("RPG game.Game");
+        setTitle("RPG Game");
         setSize(960, 640);
+        setBackground(new Color(0xECF0F1));
         setResizable(false);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        JPanel beginPanel = new BeginPanel(this);
-
-        JPanel mapPanel = new MapPanel(this);
-
-
-        add(beginPanel);
-        add(mapPanel);
-
         setVisible(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
-
-    public static void main(String[] args) {
-        JFrame frame = new MainFrame();
-    }
-
-
 }

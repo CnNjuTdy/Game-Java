@@ -13,7 +13,8 @@ import java.util.HashMap;
  */
 public class ImageData {
     public static HashMap<String, BufferedImage> icons = new HashMap<>();
-    private static String resPath = System.getProperty("user.dir")+"/res";
+    public static HashMap<String, BufferedImage> imgs = new HashMap<>();
+    private static String resPath = System.getProperty("user.dir") + "/res";
 
     static {
         try {
@@ -21,6 +22,8 @@ public class ImageData {
             icons.put("mage-icon", ImageIO.read(new File(resPath + "/icon/mage-icon.png")));
             icons.put("warrior-icon", ImageIO.read(new File(resPath + "/icon/warrior-icon.png")));
             icons.put("arrow-icon", ImageIO.read(new File(resPath + "/icon/arrow-icon.png")));
+
+            imgs.put("1",ImageIO.read(new File(resPath+"/img/1.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
