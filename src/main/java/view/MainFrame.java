@@ -22,7 +22,11 @@ public class MainFrame extends JFrame {
 
         JPanel beginPanel = new BeginPanel(this);
 
+        JPanel mapPanel = new MapPanel(this);
+
+
         add(beginPanel);
+        add(mapPanel);
 
         setVisible(true);
     }

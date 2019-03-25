@@ -1,8 +1,8 @@
 package view;
 
-import controller.BeginController;
 import data.ImageData;
 import game.Game;
+import model.PlayerModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -53,10 +53,10 @@ public class BeginPanel extends JPanel {
                     }
                     case VK_SPACE: {
                         System.out.println("空格");
-                        if (choose == 2) {
+                        if (choose == 0) {
+                        } else if (choose == 1) {
+                        } else if (choose == 2) {
                             Game.getInstance().exitGame();
-                        } else if (choose == 0) {
-                            
                         }
                         break;
                     }
