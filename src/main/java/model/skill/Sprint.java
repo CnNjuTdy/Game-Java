@@ -1,9 +1,10 @@
 package model.skill;
 
-import java.util.Set;
+import model.role.Warrior;
 
 public class Sprint extends Skill {
-    public Sprint(Set<Class> roleSet) {
-        super(roleSet);
+    public Sprint() {
+        super();
+        this.fitRoles.add(Warrior.class);
     }
 }

@@ -1,9 +1,10 @@
 package model.skill;
 
-import java.util.Set;
+import model.role.Mage;
 
 public class Wind extends Skill {
-    public Wind(Set<Class> roleSet) {
-        super(roleSet);
+    public Wind() {
+        super();
+        this.fitRoles.add(Mage.class);
     }
 }

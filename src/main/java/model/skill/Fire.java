@@ -1,9 +1,10 @@
 package model.skill;
 
-import java.util.Set;
+import model.role.Mage;
 
 public class Fire extends Skill {
-    public Fire(Set<Class> roleSet) {
-        super(roleSet);
+    public Fire() {
+        super();
+        this.fitRoles.add(Mage.class);
     }
 }

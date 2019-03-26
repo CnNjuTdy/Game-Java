@@ -2,18 +2,19 @@ package model.skill;
 
 import config.GameConfig;
 
+import java.util.HashSet;
 import java.util.Set;
 
-public class Skill {
-    private int damage;
-    private int maxLevel;
-    private int level;
-    private Set<Class> fitRoles;
+abstract public class Skill {
+    protected int damage;
+    protected int maxLevel;
+    protected int level;
+    protected Set<Class> fitRoles;
     private static GameConfig gameConfig = GameConfig.getInstance();
 
-    public Skill(Set<Class> roleSet) {
+    public Skill() {
         this.level = 0;
-        this.fitRoles = roleSet;
+        this.fitRoles = new HashSet<>();
     }
 
     public boolean levelUp() {
