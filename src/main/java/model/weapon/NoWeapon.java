@@ -1,11 +1,13 @@
 package model.weapon;
 
-import java.util.ArrayList;
-import java.util.Set;
+import model.role.Mage;
+import model.role.Warrior;
 
 public class NoWeapon extends Weapon {
-    public NoWeapon(Set<Class> roleSet) {
-        super(roleSet);
+    public NoWeapon() {
+        super();
+        this.fitRoles.add(Warrior.class);
+        this.fitRoles.add(Mage.class);
     }
 }
 //        _config_name = 'no_weapon'

@@ -1,10 +1,11 @@
 package model.weapon;
 
-import java.util.Set;
+import model.role.Mage;
 
 public class Scepter extends Weapon {
-    public Scepter(Set<Class> roleSet) {
-        super(roleSet);
+    public Scepter() {
+        super();
+        this.fitRoles.add(Mage.class);
     }
 }
 //        _config_name = 'scepter'

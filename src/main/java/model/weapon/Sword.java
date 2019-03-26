@@ -1,10 +1,10 @@
 package model.weapon;
 
-import java.util.Set;
+import model.role.Warrior;
 
 public class Sword extends Weapon {
-//    _config_name = 'sword'
-    public Sword (Set<Class> roleSet) {
-        super(roleSet);
+    public Sword() {
+        super();
+        this.fitRoles.add(Warrior.class);
     }
 }

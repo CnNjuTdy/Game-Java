@@ -2,19 +2,24 @@ package model.weapon;
 
 import model.weaponPart.WeaponPart;
 
+import javax.management.relation.Role;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
-public class Weapon {
+abstract public class Weapon {
 //        _config_name = 'weapon'
-    private ArrayList<WeaponPart> weaponParts;
-    private Set<Class> fitRoles;
-    public Weapon(Set<Class> roleSet) {
+    protected ArrayList<WeaponPart> weaponParts;
+    protected Set<Class> fitRoles;
+    public Weapon() {
         this.weaponParts = new ArrayList<>();
-        this.fitRoles = roleSet;
+        this.fitRoles = new HashSet<>();
     }
     public boolean isSuitableFor(Class role) {
         return this.fitRoles.contains(role);
+    }
+    public boolean isSuitableFor(Role role) {
+        return this.fitRoles.contains(role.getClass());
     }
 
     public ArrayList<WeaponPart> getAttribute() {
@@ -27,9 +32,9 @@ public class Weapon {
 //        return m + t if m is not None else t
     }
 
-    public boolean addWeaponPart(WeaponPart wp) {
-        if (wp.isSuitableFor(this.getClass())) {
-            this.weaponParts.add(wp);
+    public boolean addWeaponPart(WeaponPart weaponPart) {
+        if (weaponPart.isSuitableFor(this)) {
+            this.weaponParts.add(weaponPart);
             return true;
         }
         return false;

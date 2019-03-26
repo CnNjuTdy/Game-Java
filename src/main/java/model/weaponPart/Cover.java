@@ -1,9 +1,10 @@
 package model.weaponPart;
 
-import java.util.Set;
+import model.weapon.MagicTome;
 
 public class Cover extends WeaponPart {
-    public Cover(Set<Class> weaponSet) {
-        super(weaponSet);
+    public Cover() {
+        super();
+        this.fitWeapons.add(MagicTome.class);
     }
 }

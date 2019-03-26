@@ -1,12 +1,11 @@
 package model.weaponPart;
 
-import model.weaponPart.WeaponPart;
-
-import java.util.Set;
+import model.weapon.Shield;
 
 public class XuanWuShield extends WeaponPart {
-    public XuanWuShield(Set<Class> weaponSet) {
-        super(weaponSet);
+    public XuanWuShield() {
+        super();
+        this.fitWeapons.add(Shield.class);
     }
 }
 //        _config_name = 'xuanwu_shield'
