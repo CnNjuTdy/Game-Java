@@ -1,6 +1,7 @@
 package model.role;
 
 import config.GameConfig;
+import model.skill.NoSkill;
 import model.skill.Skill;
 import model.state.DefaultState;
 import model.state.State;
@@ -8,17 +9,21 @@ import model.weapon.NoWeapon;
 import model.weapon.Weapon;
 import pattern.Subject;
 
+import static game.Game.*;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Role extends Subject {
     protected Weapon weapon;
-    private ArrayList<Skill> skills;
+    private List<Skill> skills;
+    private int skillNumber;
+    private List<Skill> skillsCanLearn;
     private State state;
     private static GameConfig gameConfig = GameConfig.getInstance();
 
     private String name;
 
-    private static int maxLevel;
     private int level;
     private int exp;
 
@@ -33,8 +38,11 @@ public abstract class Role extends Subject {
 
     Role() {
         this.weapon = new NoWeapon();
-        maxLevel = Integer.valueOf(gameConfig.get("Role.maxLevel"));
         this.skills = new ArrayList<>();
+        this.skills.add(new NoSkill());
+        this.skills.add(new NoSkill());
+        this.skillNumber = 0;
+        this.skillsCanLearn = skillFactory.createSkills();
         this.state = new DefaultState();
         this.level = 1;
         this.exp = 0;
@@ -48,19 +56,15 @@ public abstract class Role extends Subject {
         this.speed = Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "speedLevelUp")));
     }
 
-    public boolean levelUp() {
+    public void levelUp() {
         String className = this.getClass().getName();
-        if (this.level < maxLevel) {
-            this.level++;
-            this.hp += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "hpLevelUp")));
-            this.attack += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "attackLevelUp")));
-            this.critical += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "criticalLevelUp")));
-            this.defense += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "defenseLevelUp")));
-            this.power += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "powerLevelUp")));
-            this.speed += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "speedLevelUp")));
-            return true;
-        }
-        return false;
+        this.level++;
+        this.hp += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "hpLevelUp")));
+        this.attack += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "attackLevelUp")));
+        this.critical += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "criticalLevelUp")));
+        this.defense += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "defenseLevelUp")));
+        this.power += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "powerLevelUp")));
+        this.speed += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "speedLevelUp")));
     }
 
     public int getHp() {
@@ -95,7 +99,7 @@ public abstract class Role extends Subject {
         return this.speed;
     }
 
-    public ArrayList getSkills() {
+    public List<Skill> getSkills() {
         return this.skills;
     }
 
@@ -115,7 +119,7 @@ public abstract class Role extends Subject {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
@@ -128,27 +132,23 @@ public abstract class Role extends Subject {
         notifyObserver();
     }
 
-    @Override
-    public String toString() {
-        return "Role{" +
-                "weapon=" + weapon +
-                ", skills=" + skills +
-                ", state=" + state +
-                ", level=" + level +
-                ", exp=" + exp +
-                ", hp=" + hp +
-                ", attack=" + attack +
-                ", critical=" + critical +
-                ", defense=" + defense +
-                ", power=" + power +
-                ", speed=" + speed +
-                ", x=" + x +
-                ", y=" + y +
-                '}';
+    public int getSkillNumber() {
+        return skillNumber;
     }
 
-    public static void main(String[] args) {
-        Role role = new Mage();
+    public void setSkillNumber(int skillNumber) {
+        this.skillNumber = skillNumber;
     }
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public List<Skill> getSkillsCanLearn() {
+        return skillsCanLearn;
+    }
 }

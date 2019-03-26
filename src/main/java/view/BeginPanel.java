@@ -5,6 +5,10 @@ import data.MapData;
 import model.map.DefaultMap;
 import model.role.Mage;
 import model.role.Warrior;
+import model.skill.factory.MageSkillFactory;
+import model.skill.factory.WarriorSkillFactory;
+import model.weapon.factory.MageWeaponFactory;
+import model.weapon.factory.WarriorWeaponFactory;
 
 import static game.Game.*;
 
@@ -31,6 +35,9 @@ public class BeginPanel extends JPanel {
     private void init() {
         setLayout(null);
         setBounds(0, 0, 960, 640);
+    }
+
+    public void addListener() {
         k = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -58,8 +65,12 @@ public class BeginPanel extends JPanel {
                             exitGame();
                         }
                         if (choose == 0) {
+                            skillFactory = new MageSkillFactory();
+                            weaponFactory = new MageWeaponFactory();
                             player = new Mage();
                         } else {
+                            skillFactory = new WarriorSkillFactory();
+                            weaponFactory = new WarriorWeaponFactory();
                             player = new Warrior();
                         }
                         removeListener();
@@ -88,9 +99,6 @@ public class BeginPanel extends JPanel {
 
             }
         };
-    }
-
-    public void addListener() {
         frame.addKeyListener(k);
     }
 

@@ -3,6 +3,7 @@ package view;
 import controller.MapController;
 import data.ImageData;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -31,6 +32,9 @@ public class MapPanel extends JPanel implements Observer {
     public void init() {
         setLayout(null);
         setBounds(230, 0, 730, 640);
+    }
+
+    public void addListener() {
         k = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -70,9 +74,6 @@ public class MapPanel extends JPanel implements Observer {
             public void keyReleased(KeyEvent e) {
             }
         };
-    }
-
-    public void addListener() {
         frame.addKeyListener(k);
     }
 
@@ -89,6 +90,8 @@ public class MapPanel extends JPanel implements Observer {
             for (int j = 0; j < map.getWidth(); j++) {
                 if (map.get(i, j) == 1) {
                     g2.drawImage(ImageData.imgs.get("wall"), j * 40, 10 + i * 40, null);
+                } else if (map.get(i, j) > 1) {
+                    g2.drawImage(ImageData.imgs.get(map.get(i, j) + ""), j * 40, 10 + i * 40, null);
                 }
             }
         }

@@ -3,10 +3,9 @@ package game;
 import model.map.Map;
 import model.role.Monster;
 import model.role.Role;
-import sun.applet.Main;
+import model.skill.factory.SkillFactory;
+import model.weapon.factory.WeaponFactory;
 import view.*;
-
-import javax.swing.*;
 
 /**
  * Time       : 2019/3/25 18:26
@@ -15,6 +14,8 @@ import javax.swing.*;
  */
 public class Game {
     public static Role player;
+    public static SkillFactory skillFactory;
+    public static WeaponFactory weaponFactory;
     public static Monster monster;
     public static Map map;
     public static MainFrame frame;

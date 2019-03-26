@@ -1,42 +1,34 @@
 package model.weapon;
 
-import model.weaponPart.WeaponPart;
 
-import javax.management.relation.Role;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import config.GameConfig;
 
-abstract public class Weapon {
-//        _config_name = 'weapon'
-    protected ArrayList<WeaponPart> weaponParts;
-    protected Set<Class> fitRoles;
-    public Weapon() {
-        this.weaponParts = new ArrayList<>();
-        this.fitRoles = new HashSet<>();
-    }
-    public boolean isSuitableFor(Class role) {
-        return this.fitRoles.contains(role);
-    }
-    public boolean isSuitableFor(Role role) {
-        return this.fitRoles.contains(role.getClass());
+public abstract class Weapon {
+    protected GameConfig gameConfig = GameConfig.getInstance();
+
+    public int getHp() {
+        return Integer.valueOf(gameConfig.get(this.getClass().getName() + ".hp"));
     }
 
-    public ArrayList<WeaponPart> getAttribute() {
-        return weaponParts;
-//        def get_attribute(self, name):
-//        t = 0
-//        for weapon_part in self._weapon_parts:
-//        t += weapon_part.get_attribute(name)
-//        m = self._attributes.get(name)
-//        return m + t if m is not None else t
+    public int getAttack() {
+        return Integer.valueOf(gameConfig.get(this.getClass().getName() + ".attack"));
     }
 
-    public boolean addWeaponPart(WeaponPart weaponPart) {
-        if (weaponPart.isSuitableFor(this)) {
-            this.weaponParts.add(weaponPart);
-            return true;
-        }
-        return false;
+    public int getCritical() {
+        return Integer.valueOf(gameConfig.get(this.getClass().getName() + ".critical"));
     }
+
+    public int getDefense() {
+        return Integer.valueOf(gameConfig.get(this.getClass().getName() + ".defense"));
+    }
+
+    public int getPower() {
+        return Integer.valueOf(gameConfig.get(this.getClass().getName() + ".power"));
+    }
+
+    public int getSpeed() {
+        return Integer.valueOf(gameConfig.get(this.getClass().getName() + ".speed"));
+    }
+
+    public abstract String getName();
 }

@@ -5,6 +5,10 @@ import model.role.Warrior;
 public class Combat extends Skill {
     public Combat() {
         super();
-        this.fitRoles.add(Warrior.class);
+    }
+
+    @Override
+    public String getName() {
+        return "Combat";
     }
 }

@@ -41,6 +41,9 @@ public class AttributePanel extends JPanel implements Observer {
         g2.drawString("Defense: ", 30, 200);
         g2.drawString("Power: ", 30, 230);
         g2.drawString("Speed: ", 30, 260);
+        g2.drawString("Level: ", 30, 290);
+        g2.drawString("Exp:", 30, 320);
+        g2.drawString("State:", 30, 350);
         g2.setFont(contentFont);
         g2.drawString(player.getName(), 100, 80);
         g2.drawString(player.getHp() + "", 100, 110);
@@ -49,19 +52,19 @@ public class AttributePanel extends JPanel implements Observer {
         g2.drawString(player.getDefense() + "", 100, 200);
         g2.drawString(player.getPower() + "", 100, 230);
         g2.drawString(player.getSpeed() + "", 100, 260);
-        g2.setFont(titleFont);
-        g2.drawString("Weapon", 37, 310);
-        g2.setFont(contentFont);
-        g2.drawString("武器balabal", 30, 350);
-        g2.setFont(titleFont);
-        g2.drawString("Equipment", 29, 400);
-        g2.setFont(contentFont);
-        g2.drawString("装备balabal", 30, 440);
-        g2.setFont(titleFont);
-        g2.drawString("Skill", 42, 490);
-        g2.setFont(contentFont);
-        g2.drawString("技能balaba", 30, 530);
+        g2.drawString(player.getLevel() + "", 100, 290);
+        g2.drawString(player.getExp() + "/100", 100, 320);
+        g2.drawString(player.getState().getName(), 100, 350);
 
+        g2.setFont(titleFont);
+        g2.drawString("Weapon", 38, 400);
+        g2.setFont(contentFont);
+        g2.drawString(player.getWeapon().getName(), 30, 440);
+        g2.setFont(titleFont);
+        g2.drawString("Skill", 46, 490);
+        g2.setFont(contentFont);
+        g2.drawString("<#1> " + player.getSkills().get(0).getName(), 30, 530);
+        g2.drawString("<#2> " + player.getSkills().get(1).getName(), 30, 570);
 
     }
 

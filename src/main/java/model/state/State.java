@@ -1,4 +1,6 @@
 package model.state;
 
-public class State {
+public abstract class State {
+    public abstract String getName();
+
 }
