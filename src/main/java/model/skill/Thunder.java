@@ -1,9 +1,10 @@
 package model.skill;
 
-import java.util.Set;
+import model.role.Mage;
 
 public class Thunder extends Skill {
-    public Thunder(Set<Class> roleSet) {
-        super(roleSet);
+    public Thunder() {
+        super();
+        this.fitRoles.add(Mage.class);
     }
 }

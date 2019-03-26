@@ -1,9 +1,10 @@
 package model.skill;
 
-import java.util.Set;
+import model.role.Warrior;
 
 public class Combat extends Skill {
-    public Combat(Set<Class> roleSet) {
-        super(roleSet);
+    public Combat() {
+        super();
+        this.fitRoles.add(Warrior.class);
     }
 }
