@@ -15,20 +15,22 @@ import java.util.ArrayList;
 
 public class Role {
     //    _config_name = 'role'
-    private Weapon weapon;
-    private ArrayList<Equipment> equipments;
-    private ArrayList<Skill> skills;
-    private State state;
-    private int max_level;  // game_config('role_max_level');
-    private int level;
-    private int exp;
+    protected Weapon weapon;
+    protected ArrayList<Equipment> equipments;
+    protected ArrayList<Skill> skills;
+    protected State state;
+    protected int max_level;  // game_config('role_max_level');
+    protected int level;
+    protected int exp;
+    protected GameConfig gameConfig;
 
     public Role() {
 //        this.weapon = new NoWeapon();
         this.equipments = new ArrayList<>();
         this.skills = new ArrayList<>();
         this.state = new DefaultState();
-//        this.max_level = (int)GameConfig.get(String.format("%s.%s", this.getClass().getName(), "maxLevel"));
+        this.gameConfig = GameConfig.getInstance();
+        this.max_level = Integer.valueOf(gameConfig.get("Role.maxLevel"));
         this.level = 1;
         this.exp = 0;
     }
