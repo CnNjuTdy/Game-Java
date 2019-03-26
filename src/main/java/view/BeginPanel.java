@@ -57,8 +57,10 @@ public class BeginPanel extends JPanel {
                         PlayerModel p;
                         if (choose == 0) {
                             p = new PlayerModel();
+                            p.setRoleName("mage");
                         } else {
                             p = new PlayerModel();
+                            p.setRoleName("warrior");
                         }
                         beginPanel.setVisible(false);
                         attributePanel.setVisible(true);

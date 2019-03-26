@@ -24,7 +24,14 @@ public class ImageData {
             icons.put("arrow-icon", ImageIO.read(new File(resPath + "/icon/arrow-icon.png")));
 
             imgs.put("wall",ImageIO.read(new File(resPath+"/img/wall.png")));
+            imgs.put("ground",ImageIO.read(new File(resPath+"/img/ground.png")));
             imgs.put("mage",ImageIO.read(new File(resPath+"/img/mage.png")));
+            imgs.put("warrior",ImageIO.read(new File(resPath+"/img/warrior.png")));
+            imgs.put("204",ImageIO.read(new File(resPath+"/img/204.png")));
+            imgs.put("206",ImageIO.read(new File(resPath+"/img/206.png")));
+            imgs.put("207",ImageIO.read(new File(resPath+"/img/207.png")));
+            imgs.put("208",ImageIO.read(new File(resPath+"/img/208.png")));
+            imgs.put("211",ImageIO.read(new File(resPath+"/img/211.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
