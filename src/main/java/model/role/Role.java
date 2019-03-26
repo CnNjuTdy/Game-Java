@@ -16,27 +16,28 @@ import java.util.ArrayList;
 abstract class Role {
     //    _config_name = 'role'
     protected Weapon weapon;
-    protected ArrayList<Equipment> equipments;
-    protected ArrayList<Skill> skills;
-    protected State state;
-    protected int maxLevel;  // game_config('role_max_level');
-    protected int level;
-    protected int exp;
-    protected static GameConfig gameConfig = GameConfig.getInstance();
+    private ArrayList<Equipment> equipments;
+    private ArrayList<Skill> skills;
+    private State state;
+    private static GameConfig gameConfig = GameConfig.getInstance();
 
-    private Integer hp;
-    private Integer attack;
-    private Integer critical;
-    private Integer defense;
-    private Integer power;
-    private Integer speed;
+    private static int maxLevel;  // game_config('role_max_level');
+    private int level;
+    private int exp;
+
+    private int hp;
+    private int attack;
+    private int critical;
+    private int defense;
+    private int power;
+    private int speed;
 
     Role() {
-//        this.weapon = new NoWeapon();
+//        this.weapon = new NoWeapon(); // 怎么init？
+        maxLevel = Integer.valueOf(gameConfig.get("Role.maxLevel"));
         this.equipments = new ArrayList<>();
         this.skills = new ArrayList<>();
         this.state = new DefaultState();
-        this.maxLevel = Integer.valueOf(gameConfig.get("Role.maxLevel"));
         this.level = 1;
         this.exp = 0;
 
@@ -62,6 +63,40 @@ abstract class Role {
             return true;
         }
         return false;
+    }
+
+    public int getHp() {
+        return this.hp;
+    }
+    public int getAttack() {
+        return this.attack;
+    }
+    public int getLevel() {
+        return this.level;
+    }
+    public int getExp() {
+        return this.exp;
+    }
+    public int getCritical() {
+        return this.critical;
+    }
+    public int getDefense() {
+        return this.defense;
+    }
+    public int getPower() {
+        return this.power;
+    }
+    public int getSpeed() {
+        return this.speed;
+    }
+    public ArrayList getEquipments() {
+        return this.equipments;
+    }
+    public ArrayList getSkills() {
+        return this.skills;
+    }
+    public State getState() {
+        return this.state;
     }
 }
 
