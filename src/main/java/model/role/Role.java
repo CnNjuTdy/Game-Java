@@ -13,56 +13,59 @@ import model.weapon.Weapon;
 
 import java.util.ArrayList;
 
-public class Role {
+abstract class Role {
     //    _config_name = 'role'
     protected Weapon weapon;
     protected ArrayList<Equipment> equipments;
     protected ArrayList<Skill> skills;
     protected State state;
-    protected int max_level;  // game_config('role_max_level');
+    protected int maxLevel;  // game_config('role_max_level');
     protected int level;
     protected int exp;
-    protected GameConfig gameConfig;
+    protected static GameConfig gameConfig = GameConfig.getInstance();
 
-    public Role() {
+    private Integer hp;
+    private Integer attack;
+    private Integer critical;
+    private Integer defense;
+    private Integer power;
+    private Integer speed;
+
+    Role() {
 //        this.weapon = new NoWeapon();
         this.equipments = new ArrayList<>();
         this.skills = new ArrayList<>();
         this.state = new DefaultState();
-        this.gameConfig = GameConfig.getInstance();
-        this.max_level = Integer.valueOf(gameConfig.get("Role.maxLevel"));
+        this.maxLevel = Integer.valueOf(gameConfig.get("Role.maxLevel"));
         this.level = 1;
         this.exp = 0;
+
+        String className = this.getClass().getName();
+        this.hp = Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "hpLevelUp")));
+        this.attack = Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "attackLevelUp")));
+        this.critical = Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "criticalLevelUp")));
+        this.defense = Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "defenseLevelUp")));
+        this.power = Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "powerLevelUp")));
+        this.speed = Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "speedLevelUp")));
+    }
+
+    public boolean levelUp() {
+        String className = this.getClass().getName();
+        if (this.level < this.maxLevel) {
+            this.level++;
+            this.hp += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "hpLevelUp")));
+            this.attack += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "attackLevelUp")));
+            this.critical += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "criticalLevelUp")));
+            this.defense += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "defenseLevelUp")));
+            this.power += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "powerLevelUp")));
+            this.speed += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "speedLevelUp")));
+            return true;
+        }
+        return false;
     }
 }
 
 
-//    def __init__(self):
-//            super().__init__()
-//    self._weapon = NoWeapon()
-//    self._equipments = EquipmentList()
-//    self._skills = SkillList()
-//    self._state = DefaultState()
-//    self._max_level = game_config('role_max_level')
-//    self._level = 1
-//    self._exp = 0
-//
-//    def get_attribute(self, name):
-//    attribute = self._attributes.get(name)
-//            if attribute is not None:
-//            return attribute + self._weapon.get_attribute(name) + self._equipments.get_attribute(name)
-//            return self._weapon.get_attribute(name) + self._equipments.get_attribute(name)
-//
-//    def level_up(self):
-//            if self._level == self._max_level:
-//            return 'already full level'
-//    t = level_up_config(self._config_name)
-//        for k, v in t:
-//            if k in self._attributes:
-//    self._attributes[k] += v
-//        else:
-//    self._attributes[k] = v
-//
 //    def get_weapon(self, weapon):
 //            if not weapon.is_suitable_weapon(type(self)):
 //            return 'not suitable'
