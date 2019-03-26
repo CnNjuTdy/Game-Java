@@ -4,11 +4,12 @@ import java.io.*;
 import java.util.Properties;
 
 public class GameConfig {
+    private static GameConfig instance;
     Properties properties = new Properties();
 //    InputStream in = GameConfig.class.getClassLoader().getResourceAsStream("game.properties");
     FileInputStream in;
 
-    public GameConfig() {
+    private GameConfig() {
         try {
             this.in = new FileInputStream("game.properties");
             properties.load(in);
@@ -18,7 +19,14 @@ public class GameConfig {
         }
     }
 
+    public static synchronized GameConfig getInstance() {
+        if (instance == null) {
+            instance = new GameConfig();
+        }
+        return instance;
+    }
+
     public String get(String configKey) {
-        return properties.getProperty(configKey);
+        return properties.getProperty(configKey,"0");
     }
 }
