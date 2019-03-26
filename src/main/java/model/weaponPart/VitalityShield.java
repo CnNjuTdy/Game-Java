@@ -1,12 +1,11 @@
 package model.weaponPart;
 
-import model.weaponPart.WeaponPart;
-
-import java.util.Set;
+import model.weapon.Shield;
 
 public class VitalityShield extends WeaponPart {
-    public VitalityShield(Set<Class> weaponSet) {
-        super(weaponSet);
+    public VitalityShield() {
+        super();
+        this.fitWeapons.add(Shield.class);
     }
 }
 //        _config_name = 'vitality_shield'

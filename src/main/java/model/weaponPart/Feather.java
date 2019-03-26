@@ -1,9 +1,10 @@
 package model.weaponPart;
 
-import java.util.Set;
+import model.weapon.Scepter;
 
 public class Feather extends WeaponPart {
-    public Feather(Set<Class> weaponSet) {
-        super(weaponSet);
+    public Feather() {
+        super();
+        this.fitWeapons.add(Scepter.class);
     }
 }

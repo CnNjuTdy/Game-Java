@@ -1,10 +1,11 @@
 package model.weaponPart;
 
-import java.util.Set;
+import model.weapon.Sword;
 
 public class SwordCase extends WeaponPart {
-    public SwordCase(Set<Class> weaponSet) {
-        super(weaponSet);
+    public SwordCase() {
+        super();
+        this.fitWeapons.add(Sword.class);
     }
 }
 

@@ -1,10 +1,11 @@
 package model.weaponPart;
 
-import java.util.Set;
+import model.weapon.Sword;
 
 public class SwordTassel extends WeaponPart {
-    public SwordTassel(Set<Class> weaponSet) {
-        super(weaponSet);
+    public SwordTassel() {
+        super();
+        this.fitWeapons.add(Sword.class);
     }
 }
 //        _config_name = 'sword_tassel'

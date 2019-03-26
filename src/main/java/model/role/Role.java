@@ -33,7 +33,7 @@ abstract class Role {
     private int speed;
 
     Role() {
-//        this.weapon = new NoWeapon(); // 怎么init？
+        this.weapon = new NoWeapon();
         maxLevel = Integer.valueOf(gameConfig.get("Role.maxLevel"));
         this.equipments = new ArrayList<>();
         this.skills = new ArrayList<>();

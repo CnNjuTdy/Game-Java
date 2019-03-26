@@ -1,9 +1,10 @@
 package model.weaponPart;
 
-import java.util.Set;
+import model.weapon.MagicTome;
 
 public class ImperfectSheet extends WeaponPart {
-    public ImperfectSheet(Set<Class> weaponSet) {
-        super(weaponSet);
+    public ImperfectSheet() {
+        super();
+        this.fitWeapons.add(MagicTome.class);
     }
 }
