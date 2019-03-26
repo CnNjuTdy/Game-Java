@@ -1,7 +1,10 @@
 package view;
 
 import data.ImageData;
-import model.PlayerModel;
+import data.MapData;
+import model.map.DefaultMap;
+import model.role.Mage;
+import model.role.Warrior;
 
 import static game.Game.*;
 
@@ -19,6 +22,7 @@ import static java.awt.event.KeyEvent.*;
  */
 public class BeginPanel extends JPanel {
     private int choose = 0;
+    private KeyListener k;
 
     public BeginPanel() {
         init();
@@ -27,7 +31,7 @@ public class BeginPanel extends JPanel {
     private void init() {
         setLayout(null);
         setBounds(0, 0, 960, 640);
-        frame.addKeyListener(new KeyListener() {
+        k = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
             }
@@ -50,21 +54,26 @@ public class BeginPanel extends JPanel {
                         break;
                     }
                     case VK_SPACE: {
-                        frame.removeKeyListener(this);
                         if (choose == 2) {
                             exitGame();
                         }
-                        PlayerModel p;
                         if (choose == 0) {
-                            p = new PlayerModel();
+                            player = new Mage();
                         } else {
-                            p = new PlayerModel();
+                            player = new Warrior();
                         }
+                        removeListener();
+
                         beginPanel.setVisible(false);
-                        attributePanel.setVisible(true);
-                        attributePanel.setPlayerModel(p);
-                        mapPanel.setPlayer(p);
                         mapPanel.setVisible(true);
+                        mapPanel.addListener();
+                        attributePanel.setVisible(true);
+
+                        map = new DefaultMap(MapData.getMap(0));
+                        map.register(mapPanel);
+
+                        player.register(mapPanel);
+                        player.register(attributePanel);
                         break;
                     }
                     default: {
@@ -78,7 +87,15 @@ public class BeginPanel extends JPanel {
             public void keyReleased(KeyEvent e) {
 
             }
-        });
+        };
+    }
+
+    public void addListener() {
+        frame.addKeyListener(k);
+    }
+
+    public void removeListener() {
+        frame.removeKeyListener(k);
     }
 
     @Override

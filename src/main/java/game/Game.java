@@ -1,10 +1,12 @@
 package game;
 
+import model.map.Map;
+import model.role.Monster;
+import model.role.Role;
 import sun.applet.Main;
 import view.*;
 
 import javax.swing.*;
-import java.util.Map;
 
 /**
  * Time       : 2019/3/25 18:26
@@ -12,6 +14,9 @@ import java.util.Map;
  * Description: 程序入口
  */
 public class Game {
+    public static Role player;
+    public Monster monster;
+    public static Map map;
     public static MainFrame frame;
     public static BeginPanel beginPanel;
     public static AttributePanel attributePanel;
@@ -25,6 +30,7 @@ public class Game {
         frame.setLayout(null);
 
         beginPanel = new BeginPanel();
+        beginPanel.addListener();
         beginPanel.setVisible(true);
 
         attributePanel = new AttributePanel();

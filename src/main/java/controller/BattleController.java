@@ -1,7 +1,18 @@
 package controller;
 
+import static game.Game.*;
+
 public class BattleController {
-//    public BattleController(player, npc)
-//    self._player = player
-//    self._npc = npc
+    public static BattleController instance;
+
+    private BattleController() {
+    }
+
+    public static BattleController getInstance() {
+        if (instance == null) {
+            instance = new BattleController();
+        }
+        return instance;
+    }
+
 }

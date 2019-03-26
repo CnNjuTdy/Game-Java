@@ -25,7 +25,7 @@ public class MapData {
             {14, 14}
     };
 
-    private static int[][][] map = {
+    private final static int[][][] map = {
             {   // 第 0 层
                     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
