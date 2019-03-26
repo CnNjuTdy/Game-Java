@@ -31,29 +31,29 @@ public class Game {
 
         beginPanel = new BeginPanel();
         beginPanel.addListener();
+        frame.add(beginPanel);
         beginPanel.setVisible(true);
 
         attributePanel = new AttributePanel();
+        frame.add(attributePanel);
         attributePanel.setVisible(false);
 
         mapPanel = new MapPanel();
+        frame.add(mapPanel);
         mapPanel.setVisible(false);
 
         battlePanel = new BattlePanel();
+        frame.add(battlePanel);
         battlePanel.setVisible(false);
 
         selectPanel = new SelectPanel();
+        frame.add(selectPanel);
         selectPanel.setVisible(false);
 
         victoryPanel = new VictoryPanel();
+        frame.add(victoryPanel);
         victoryPanel.setVisible(false);
 
-        frame.add(beginPanel);
-        frame.add(attributePanel);
-        frame.add(mapPanel);
-        frame.add(battlePanel);
-        frame.add(selectPanel);
-        frame.add(victoryPanel);
     }
 
     public static void exitGame() {

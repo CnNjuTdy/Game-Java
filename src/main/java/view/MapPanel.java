@@ -25,6 +25,7 @@ public class MapPanel extends JPanel implements Observer {
 
     public MapPanel() {
         init();
+        repaint();
     }
 
     public void init() {
