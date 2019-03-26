@@ -24,8 +24,8 @@ public class ImageData {
             icons.put("arrow-icon", ImageIO.read(new File(resPath + "/icon/arrow-icon.png")));
 
             imgs.put("wall", ImageIO.read(new File(resPath + "/img/wall0.png")));
-            imgs.put("mage", ImageIO.read(new File(resPath + "/img/mage.png")));
-            imgs.put("warrior", ImageIO.read(new File(resPath + "/img/warrior.png")));
+            imgs.put("Mage", ImageIO.read(new File(resPath + "/img/mage.png")));
+            imgs.put("Warrior", ImageIO.read(new File(resPath + "/img/warrior.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -42,7 +42,7 @@ public class AttributePanel extends JPanel implements Observer {
         g2.drawString("Power: ", 30, 230);
         g2.drawString("Speed: ", 30, 260);
         g2.setFont(contentFont);
-        g2.drawString(player.getDisplayName(), 100, 80);
+        g2.drawString(player.getName(), 100, 80);
         g2.drawString(player.getHp() + "", 100, 110);
         g2.drawString(player.getAttack() + "", 100, 140);
         g2.drawString(player.getCritical() + "", 100, 170);

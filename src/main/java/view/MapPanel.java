@@ -92,7 +92,7 @@ public class MapPanel extends JPanel implements Observer {
             }
         }
         // 画玩家
-        g2.drawImage(ImageData.imgs.get(player.getConfigName()), player.getX() * 40, 10 + player.getY() * 40, null);
+        g2.drawImage(ImageData.imgs.get(player.getName()), player.getX() * 40, 10 + player.getY() * 40, null);
     }
 
     @Override

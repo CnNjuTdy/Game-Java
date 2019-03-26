@@ -9,7 +9,7 @@ import pattern.Subject;
  * Author     : tangdaye
  * Description: 地图模型
  */
-public class DefaultMap implements Map {
+public class DefaultMap extends Map {
     private int[][] mapData;
 
     public DefaultMap(int[][] mapData) {
@@ -27,16 +27,6 @@ public class DefaultMap implements Map {
 
     public int get(int i, int j) {
         return mapData[i][j];
-    }
-
-    @Override
-    public void notifyObserver() {
-
-    }
-
-    @Override
-    public void register(Observer o) {
-
     }
 
     public static void main(String[] args) {

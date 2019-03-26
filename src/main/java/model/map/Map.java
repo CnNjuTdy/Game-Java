@@ -7,11 +7,11 @@ import pattern.Subject;
  * Author     : tangdaye
  * Description: 地图模型
  */
-public interface Map extends Subject {
-    public int getWidth();
+public abstract class Map extends Subject {
+    public abstract int getWidth();
 
-    public int getHeight();
+    public abstract int getHeight();
 
-    public int get(int i, int j);
+    public abstract int get(int i, int j);
 
 }

@@ -1,5 +1,6 @@
 package pattern;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,9 +8,18 @@ import java.util.List;
  * Author     : tangdaye
  * Description: 主题
  */
-public interface Subject {
+public abstract class Subject {
+    List<Observer> observers = new ArrayList<>();
 
-    void notifyObserver();
+    public void notifyObserver() {
+        for (Observer o : observers) {
+            o.update(this);
+        }
+    }
 
-    void register(Observer o);
+    public void register(Observer o) {
+        if (observers.indexOf(o) < 0) {
+            observers.add(o);
+        }
+    }
 }

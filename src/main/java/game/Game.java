@@ -15,7 +15,7 @@ import javax.swing.*;
  */
 public class Game {
     public static Role player;
-    public Monster monster;
+    public static Monster monster;
     public static Map map;
     public static MainFrame frame;
     public static BeginPanel beginPanel;
