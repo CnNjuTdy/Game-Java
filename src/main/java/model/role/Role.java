@@ -52,7 +52,7 @@ abstract class Role {
 
     public boolean levelUp() {
         String className = this.getClass().getName();
-        if (this.level < this.maxLevel) {
+        if (this.level < maxLevel) {
             this.level++;
             this.hp += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "hpLevelUp")));
             this.attack += Integer.valueOf(gameConfig.get(String.format("%s.%s", className, "attackLevelUp")));
