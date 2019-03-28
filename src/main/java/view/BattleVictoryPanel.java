@@ -1,7 +1,5 @@
 package view;
 
-import com.sun.xml.internal.ws.org.objectweb.asm.ByteVector;
-import controller.BattleController;
 import controller.BattleVictoryController;
 import data.ImageData;
 

@@ -7,12 +7,11 @@ public class GameConfig {
     private static GameConfig instance;
     Properties properties = new Properties();
     //    InputStream in = GameConfig.class.getClassLoader().getResourceAsStream("game.properties");
-    FileInputStream in;
-    private final static String resPath = System.getProperty("user.dir") + "/res";
+    InputStream in;
 
     private GameConfig() {
         try {
-            this.in = new FileInputStream(resPath + "/game.properties");
+            this.in = this.getClass().getClassLoader().getResourceAsStream("game.properties");
             properties.load(in);
             in.close();
         } catch (Exception e) {
