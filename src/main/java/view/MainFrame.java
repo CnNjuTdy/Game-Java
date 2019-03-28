@@ -20,7 +20,7 @@ public class MainFrame extends JFrame {
     private void init() {
         setTitle("RPG Game");
         setSize(960, 640);
-        setBackground(new Color(0xECF0F1));
+        setBackground(new Color(0xeeeeee));
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);

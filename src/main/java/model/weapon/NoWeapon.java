@@ -36,6 +36,16 @@ public class NoWeapon extends Weapon {
 
     @Override
     public String getName() {
-        return "No weapon";
+        return "没有武器";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return getName();
+    }
+
+    @Override
+    public String getAttribute() {
+        return "";
     }
 }

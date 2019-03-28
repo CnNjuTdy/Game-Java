@@ -1,6 +1,5 @@
 package model.skill;
 
-import model.role.Mage;
 
 public class Thunder extends Skill {
     public Thunder() {
@@ -9,6 +8,6 @@ public class Thunder extends Skill {
 
     @Override
     public String getName() {
-        return "Thunder";
+        return "雷电：伤害" + getDamage();
     }
 }

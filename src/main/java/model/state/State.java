@@ -1,6 +1,9 @@
 package model.state;
 
-public abstract class State {
-    public abstract String getName();
+public interface State {
+    String getName();
 
+    int attack(int attack, boolean critical);
+
+    int useSkill(int damage, int power);
 }

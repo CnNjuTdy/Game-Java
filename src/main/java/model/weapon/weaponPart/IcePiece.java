@@ -7,8 +7,14 @@ public class IcePiece extends WeaponPart {
         super(weapon);
     }
 
-//    @Override
-//    public String getName() {
-//        return "Ice Piece";
-//    }
+    @Override
+    public String getDisplayName() {
+        return "冰片 +20防御";
+    }
+
+    @Override
+    public String getAttribute() {
+        return weapon.getAttribute() + " +20防御";
+    }
+
 }

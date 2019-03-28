@@ -16,7 +16,6 @@ public class WarriorSkillFactory implements SkillFactory {
         List<Skill> t = new ArrayList<>();
         t.add(new Combat());
         t.add(new Sprint());
-        t.add(new Trample());
         return t;
     }
 }

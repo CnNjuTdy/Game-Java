@@ -1,6 +1,5 @@
 package model.skill;
 
-import model.role.Warrior;
 
 public class Combat extends Skill {
     public Combat() {
@@ -9,6 +8,6 @@ public class Combat extends Skill {
 
     @Override
     public String getName() {
-        return "Combat";
+        return "决斗：伤害" + getDamage();
     }
 }

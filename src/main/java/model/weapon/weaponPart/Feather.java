@@ -8,9 +8,14 @@ public class Feather extends WeaponPart {
         super(weapon);
     }
 
-//
-//    @Override
-//    public String getName() {
-//        return "Feather";
-//    }
+    @Override
+    public String getDisplayName() {
+        return "羽毛 +20法强";
+    }
+
+    @Override
+    public String getAttribute() {
+        return weapon.getAttribute() + " +20法强";
+    }
+
 }

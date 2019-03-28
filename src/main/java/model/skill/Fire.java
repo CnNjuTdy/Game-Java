@@ -8,6 +8,6 @@ public class Fire extends Skill {
 
     @Override
     public String getName() {
-        return "Fire";
+        return "烈火：伤害"+getDamage();
     }
 }

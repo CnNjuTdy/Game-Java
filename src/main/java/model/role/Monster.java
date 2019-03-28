@@ -1,8 +1,11 @@
 package model.role;
 
 import config.GameConfig;
+import pattern.Subject;
 
-public class Monster {
+import static game.Game.*;
+
+public class Monster extends Subject {
     private static GameConfig gameConfig = GameConfig.getInstance();
     private int id;
     private int hp;
@@ -23,6 +26,26 @@ public class Monster {
         this.exp = Integer.valueOf(gameConfig.get("Monster.exp"));
         this.x = x;
         this.y = y;
+    }
+
+    public boolean attack() {
+        boolean critic = Math.random() > critical / 100.0;
+        int damage = critic ? attack * 2 : attack;
+        log.append("怪物对你造成了" + damage + "伤害");
+        return player.beAttacked(damage);
+    }
+
+    public boolean beAttacked(int damage) {
+        int t = (int) Math.round(damage * (1 - defense / 100.0));
+        if (t >= hp) {
+            //怪物死了
+            return true;
+        } else {
+            this.hp -= t;
+            log.append("怪物受到了" + t + "伤害");
+            notifyObserver();
+            return false;
+        }
     }
 
 
@@ -59,4 +82,3 @@ public class Monster {
     }
 
 }
-

@@ -3,7 +3,6 @@ package model.skill.factory;
 import model.skill.Fire;
 import model.skill.Skill;
 import model.skill.Thunder;
-import model.skill.Wind;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,6 @@ public class MageSkillFactory implements SkillFactory {
         List<Skill> t = new ArrayList<>();
         t.add(new Fire());
         t.add(new Thunder());
-        t.add(new Wind());
         return t;
     }
 }

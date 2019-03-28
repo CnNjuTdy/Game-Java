@@ -4,7 +4,7 @@ package model.weapon.weaponPart;
 import model.weapon.Weapon;
 
 public abstract class WeaponPart extends Weapon {
-    private Weapon weapon;
+    protected Weapon weapon;
 
     public WeaponPart(Weapon weapon) {
         this.weapon = weapon;
@@ -45,4 +45,8 @@ public abstract class WeaponPart extends Weapon {
         return weapon.getName();
     }
 
+    public abstract String getDisplayName();
+
+    @Override
+    public abstract String getAttribute();
 }

@@ -29,8 +29,10 @@ public class DefaultMap extends Map {
         return mapData[i][j];
     }
 
-    public static void main(String[] args) {
-        DefaultMap map = new DefaultMap(MapData.getMap(0));
-        System.out.println(map.get(14, 0));
+    @Override
+    public void set(int i, int j, int value) {
+        this.mapData[i][j] = value;
+        notifyObserver();
     }
+
 }

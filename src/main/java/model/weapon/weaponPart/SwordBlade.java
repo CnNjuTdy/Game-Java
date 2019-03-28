@@ -9,8 +9,14 @@ public class SwordBlade extends WeaponPart {
         super(weapon);
     }
 
-//    @Override
-//    public String getName() {
-//        return "Sword Blade";
-//    }
+    @Override
+    public String getDisplayName() {
+        return "剑刃 +30攻击力";
+    }
+
+    @Override
+    public String getAttribute() {
+        return weapon.getAttribute() + " +30攻击力";
+    }
+
 }

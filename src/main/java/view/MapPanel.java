@@ -83,7 +83,7 @@ public class MapPanel extends JPanel implements Observer {
 
     @Override
     protected void paintComponent(Graphics g) {
-        setBackground(new Color(0xECF0F1));
+        setBackground(new Color(0xeeeeee));
         Graphics2D g2 = (Graphics2D) g;
         // 画地图
         for (int i = 0; i < map.getHeight(); i++) {
@@ -96,7 +96,7 @@ public class MapPanel extends JPanel implements Observer {
             }
         }
         // 画玩家
-        g2.drawImage(ImageData.imgs.get(player.getName()), player.getX() * 40, 10 + player.getY() * 40, null);
+        g2.drawImage(ImageData.imgs.get(player.getPicName()), player.getX() * 40, 10 + player.getY() * 40, null);
     }
 
     @Override

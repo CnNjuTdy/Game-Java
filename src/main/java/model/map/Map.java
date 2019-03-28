@@ -14,4 +14,6 @@ public abstract class Map extends Subject {
 
     public abstract int get(int i, int j);
 
+    public abstract void set(int i, int j, int value);
+
 }

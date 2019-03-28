@@ -26,6 +26,7 @@ public class MapController {
         if (map.get(y, x) == 0) {
             player.setLocation(x, y);
         } else if (map.get(y, x) > 1) {
+            player.setLocation(x, y);
             // 开始战斗
             monster = new Monster(map.get(y, x), x, y); //新建一个怪
 
@@ -35,7 +36,8 @@ public class MapController {
             battlePanel.setVisible(true);//战斗图层开启
             battlePanel.addListener();//添加地图图层的监听
 
-            
+            monster.register(battlePanel); //怪物添加战斗面板观察者
+            log.register(battlePanel);//日志添加战斗面板观察者
         }
     }
 

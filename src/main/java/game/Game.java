@@ -1,9 +1,11 @@
 package game;
 
+import model.Log;
 import model.map.Map;
 import model.role.Monster;
 import model.role.Role;
 import model.skill.factory.SkillFactory;
+import model.weapon.Weapon;
 import model.weapon.factory.WeaponFactory;
 import view.*;
 
@@ -16,15 +18,19 @@ public class Game {
     public static Role player;
     public static SkillFactory skillFactory;
     public static WeaponFactory weaponFactory;
+    public static Weapon weaponReward = null;
+    public static Boolean levelUp = false;
+    public static Boolean win = false;
     public static Monster monster;
     public static Map map;
+    public static Log log;
     public static MainFrame frame;
     public static BeginPanel beginPanel;
     public static AttributePanel attributePanel;
     public static MapPanel mapPanel;
     public static BattlePanel battlePanel;
-    public static SelectPanel selectPanel;
-    public static VictoryPanel victoryPanel;
+    public static BattleResultPanel battleResultPanel;
+    public static BattleVictoryPanel battleVictoryPanel;
 
     public static void startGame() {
         frame = new MainFrame();
@@ -47,14 +53,15 @@ public class Game {
         frame.add(battlePanel);
         battlePanel.setVisible(false);
 
-        selectPanel = new SelectPanel();
-        frame.add(selectPanel);
-        selectPanel.setVisible(false);
+        battleResultPanel = new BattleResultPanel();
+        frame.add(battleResultPanel);
+        battleResultPanel.setVisible(false);
 
-        victoryPanel = new VictoryPanel();
-        frame.add(victoryPanel);
-        victoryPanel.setVisible(false);
+        battleVictoryPanel = new BattleVictoryPanel();
+        frame.add(battleVictoryPanel);
+        battleVictoryPanel.setVisible(false);
 
+        log = new Log();
     }
 
     public static void exitGame() {

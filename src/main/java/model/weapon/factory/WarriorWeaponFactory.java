@@ -1,6 +1,10 @@
 package model.weapon.factory;
 
+import model.weapon.Sword;
 import model.weapon.Weapon;
+import model.weapon.weaponPart.SwordBlade;
+import model.weapon.weaponPart.SwordCase;
+import model.weapon.weaponPart.SwordTassel;
 
 /**
  * Time       : 2019/3/27 02:19
@@ -10,11 +14,17 @@ import model.weapon.Weapon;
 public class WarriorWeaponFactory implements WeaponFactory {
     @Override
     public Weapon createWeapon() {
-        return null;
+        return new Sword();
     }
 
     @Override
     public Weapon createWeaponPart(Weapon weapon) {
-        return null;
+        double ran = Math.random();
+        if (ran < 0.33) {
+            return new SwordCase(weapon);
+        } else if (ran < 0.66) {
+            return new SwordBlade(weapon);
+        }
+        return new SwordTassel(weapon);
     }
 }

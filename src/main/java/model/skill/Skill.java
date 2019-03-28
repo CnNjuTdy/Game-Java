@@ -2,28 +2,30 @@ package model.skill;
 
 import config.GameConfig;
 
-import java.util.HashSet;
-import java.util.Set;
 
 abstract public class Skill {
     protected int damage;
-    protected int maxLevel;
     protected int level;
     private static GameConfig gameConfig = GameConfig.getInstance();
 
     public Skill() {
         this.level = 0;
+        this.damage = Integer.valueOf(gameConfig.get(String.format("%s.%s", this.getClass().getName(), "damage")));
     }
 
-    public boolean levelUp() {
-        if (this.level < this.maxLevel) {
-            this.level++;
-            this.damage += Integer.valueOf(gameConfig.get(String.format("%s.%s", this.getClass().getName(), "damageLevelUp")));
-            return true;
-        }
-        return false;
+    public void levelUp() {
+        this.level++;
+        this.damage += Integer.valueOf(gameConfig.get(String.format("%s.%s", this.getClass().getName(), "damageLevelUp")));
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
     public abstract String getName();
+
+    public String getLevelUp() {
+        return " 升级额外造成" + Integer.valueOf(gameConfig.get(String.format("%s.%s", this.getClass().getName(), "damageLevelUp"))) + "伤害";
+    }
 
 }

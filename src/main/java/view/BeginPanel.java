@@ -108,12 +108,12 @@ public class BeginPanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        setBackground(new Color(0xECF0F1));
+        setBackground(new Color(0xeeeeee));
         Graphics2D g2 = (Graphics2D) g;
 
         //绘制标题
-        g2.setFont(new Font("Arial", Font.BOLD, 50));
-        g2.setColor(new Color(0x434A54));
+        g2.setFont(new Font("宋体", Font.BOLD, 50));
+        g2.setColor(Color.BLACK);
         g2.drawString("Warcraft Demo", 300, 60);
 
         //绘制三个图标
@@ -122,10 +122,10 @@ public class BeginPanel extends JPanel {
         g2.drawImage(ImageData.icons.get("exit-icon"), 400, 353, null);
 
         //绘制三个字符串
-        g2.setFont(new Font("Arial", Font.PLAIN, 20));
-        g2.drawString("Mage Start", 430, 290);
-        g2.drawString("Warrior Start", 430, 330);
-        g2.drawString("Exit Game", 430, 370);
+        g2.setFont(new Font("宋体", Font.PLAIN, 20));
+        g2.drawString("选择法师", 430, 290);
+        g2.drawString("选择战士", 430, 330);
+        g2.drawString("离开游戏", 430, 370);
 
         //绘制小箭头
         g2.drawImage(ImageData.icons.get("arrow-icon"), 370, 273 + choose * 40, null);

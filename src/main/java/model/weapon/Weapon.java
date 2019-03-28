@@ -31,4 +31,8 @@ public abstract class Weapon {
     }
 
     public abstract String getName();
+
+    public abstract String getDisplayName();
+
+    public abstract String getAttribute();
 }
