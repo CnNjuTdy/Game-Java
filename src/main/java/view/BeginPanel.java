@@ -110,6 +110,7 @@ public class BeginPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         setBackground(new Color(0xeeeeee));
         Graphics2D g2 = (Graphics2D) g;
+        g2.clearRect(0,0,1000,1000);
 
         //绘制标题
         g2.setFont(new Font("宋体", Font.BOLD, 50));

@@ -83,6 +83,7 @@ public class BattlePanel extends JPanel implements Observer {
         setBackground(new Color(0xeeeeee));
         // 画个正在战斗中
         Graphics2D g2 = (Graphics2D) g;
+        g2.clearRect(0,0,1000,1000);
         g2.setFont(new Font("宋体", Font.BOLD, 40));
         g2.setColor(Color.BLACK);
         g2.drawString("战斗中!", 280, 60);

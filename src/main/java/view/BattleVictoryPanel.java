@@ -84,6 +84,7 @@ public class BattleVictoryPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         setBackground(new Color(0xeeeeee));
         Graphics2D g2 = (Graphics2D) g;
+        g2.clearRect(0,0,1000,1000);
         g2.setFont(new Font("宋体", Font.BOLD, 40));
         g2.drawString("获胜", 310, 110);
         //获得武器奖励

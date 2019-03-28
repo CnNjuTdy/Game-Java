@@ -33,35 +33,37 @@ public class Game {
     public static BattleVictoryPanel battleVictoryPanel;
 
     public static void startGame() {
-        frame = new MainFrame();
-        frame.setLayout(null);
+        try {
+            frame = new MainFrame();
+            frame.setLayout(null);
 
-        beginPanel = new BeginPanel();
-        beginPanel.addListener();
-        frame.add(beginPanel);
-        beginPanel.setVisible(true);
+            beginPanel = new BeginPanel();
+            beginPanel.addListener();
+            frame.add(beginPanel);
+            beginPanel.setVisible(true);
 
-        attributePanel = new AttributePanel();
-        frame.add(attributePanel);
-        attributePanel.setVisible(false);
+            attributePanel = new AttributePanel();
+            frame.add(attributePanel);
+            attributePanel.setVisible(false);
 
-        mapPanel = new MapPanel();
-        frame.add(mapPanel);
-        mapPanel.setVisible(false);
+            mapPanel = new MapPanel();
+            frame.add(mapPanel);
+            mapPanel.setVisible(false);
 
-        battlePanel = new BattlePanel();
-        frame.add(battlePanel);
-        battlePanel.setVisible(false);
+            battlePanel = new BattlePanel();
+            frame.add(battlePanel);
+            battlePanel.setVisible(false);
 
-        battleResultPanel = new BattleResultPanel();
-        frame.add(battleResultPanel);
-        battleResultPanel.setVisible(false);
+            battleResultPanel = new BattleResultPanel();
+            frame.add(battleResultPanel);
+            battleResultPanel.setVisible(false);
 
-        battleVictoryPanel = new BattleVictoryPanel();
-        frame.add(battleVictoryPanel);
-        battleVictoryPanel.setVisible(false);
+            battleVictoryPanel = new BattleVictoryPanel();
+            frame.add(battleVictoryPanel);
+            battleVictoryPanel.setVisible(false);
 
-        log = new Log();
+            log = new Log();
+        } catch (NullPointerException e) {}
     }
 
     public static void exitGame() {

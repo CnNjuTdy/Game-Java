@@ -43,7 +43,7 @@ public class MapPanel extends JPanel implements Observer {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
-                    case VK_UP: {
+                    case VK_UP:{
                         controller.move(0, -1);
                         break;
                     }
@@ -85,19 +85,20 @@ public class MapPanel extends JPanel implements Observer {
     protected void paintComponent(Graphics g) {
         setBackground(new Color(0xeeeeee));
         Graphics2D g2 = (Graphics2D) g;
+        g2.clearRect(0,0,1000,1000);
         // 画地图
         for (int i = 0; i < map.getHeight(); i++) {
             for (int j = 0; j < map.getWidth(); j++) {
                 if (map.get(i, j) == 1) {
                     g2.drawImage(ImageData.imgs.get("wall"), j * 40, 10 + i * 40, null);
                 }
-//                else if (map.get(i, j) > 1) {
-//                    g2.drawImage(ImageData.imgs.get(map.get(i, j) + ""), j * 40, 10 + i * 40, null);
-//                }
+                else if (map.get(i, j) > 1) {
+                    g2.drawImage(ImageData.imgs.get(map.get(i, j) + ""), j * 40, 10 + i * 40, null);
+                }
             }
         }
         // 画玩家
-//        g2.drawImage(ImageData.imgs.get(player.getPicName()), player.getX() * 40, 10 + player.getY() * 40, null);
+        g2.drawImage(ImageData.imgs.get(player.getPicName()), player.getX() * 40, 10 + player.getY() * 40, null);
     }
 
     @Override

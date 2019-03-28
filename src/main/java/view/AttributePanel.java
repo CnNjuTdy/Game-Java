@@ -31,6 +31,7 @@ public class AttributePanel extends JPanel implements Observer {
         Font contentFont = new Font("宋体", Font.PLAIN, 15);
         setBackground(new Color(0xeeeeee));
         Graphics2D g2 = (Graphics2D) g;
+        g2.clearRect(0,0,1000,1000);
         g2.setFont(titleFont);
         g2.drawString("属性", 35, 40);
         g2.setFont(labelFont);

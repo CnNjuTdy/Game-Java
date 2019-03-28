@@ -49,8 +49,9 @@ public class BattleResultPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         setBackground(new Color(0x434a54));
         Graphics2D g2 = (Graphics2D) g;
+        g2.clearRect(0,0,1000,1000);
         g2.setFont(new Font("宋体", Font.BOLD, 50));
-        g2.setColor(new Color(0xeeeeee));
+        g2.setColor(new Color(0x3797FF));
         if (!win) {
             g2.drawString("你死了", 410, 200);
         } else {
