@@ -90,13 +90,14 @@ public class MapPanel extends JPanel implements Observer {
             for (int j = 0; j < map.getWidth(); j++) {
                 if (map.get(i, j) == 1) {
                     g2.drawImage(ImageData.imgs.get("wall"), j * 40, 10 + i * 40, null);
-                } else if (map.get(i, j) > 1) {
-                    g2.drawImage(ImageData.imgs.get(map.get(i, j) + ""), j * 40, 10 + i * 40, null);
                 }
+//                else if (map.get(i, j) > 1) {
+//                    g2.drawImage(ImageData.imgs.get(map.get(i, j) + ""), j * 40, 10 + i * 40, null);
+//                }
             }
         }
         // 画玩家
-        g2.drawImage(ImageData.imgs.get(player.getPicName()), player.getX() * 40, 10 + player.getY() * 40, null);
+//        g2.drawImage(ImageData.imgs.get(player.getPicName()), player.getX() * 40, 10 + player.getY() * 40, null);
     }
 
     @Override
